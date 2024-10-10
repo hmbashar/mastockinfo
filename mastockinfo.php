@@ -21,14 +21,23 @@ if (!defined('ABSPATH')) {
 define('MASTOCKINFO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('MASTOCKINFO_PLUGIN_URL', plugin_dir_url(__FILE__));
 
-class StockInformation
+class Mastockinfo_Plugin
 {
     public function __construct()
     {
         // Hook to register Elementor widgets
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
 
+        // Load CSS and JS files
         add_action('wp_enqueue_scripts', [$this, 'mastockinfo_enqueue_styles']);
+
+        // Load text domain
+        add_action('plugins_loaded', [$this, 'load_text_domain']);
+    }
+
+        // Register the text domain
+    public function load_text_domain() {
+        load_plugin_textdomain('mastockinfo', false, dirname(plugin_basename(__FILE__)) . '/languages/');
     }
 
     public function mastockinfo_enqueue_styles()
@@ -58,8 +67,7 @@ class StockInformation
 }
 
 // Initialize the plugin
-function mastockinfo_run_plugin()
-{
-    new StockInformation();
+function run_mastockinfo_plugin() {
+    new Mastockinfo_Plugin();
 }
-add_action('plugins_loaded', 'MSSTOCKINFO\\mastockinfo_run_plugin');
+run_mastockinfo_plugin();
