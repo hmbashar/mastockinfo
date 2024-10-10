@@ -27,7 +27,20 @@ class StockInformation
     {
         // Hook to register Elementor widgets
         add_action('elementor/widgets/widgets_registered', [$this, 'register_widgets']);
+
+        add_action('wp_enqueue_scripts', [$this, 'mastockinfo_enqueue_styles']);
     }
+
+    public function mastockinfo_enqueue_styles()
+    {
+        // Enqueue the CSS file
+        wp_register_style('mastockinfo-stock-widget', MASTOCKINFO_PLUGIN_URL . 'assets/css/stock-widget.css');
+
+        // Enqueue the JS file
+        wp_register_script( 'mastockinfo-stock-widget', MASTOCKINFO_PLUGIN_URL . 'assets/js/stock-widget.js', [], '1.0', true );
+    }
+
+
 
     public function register_widgets()
     {

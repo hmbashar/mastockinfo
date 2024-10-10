@@ -28,6 +28,22 @@ class Stock_Widget extends \Elementor\Widget_Base
         return ['general'];
     }
 
+    public function get_script_depends()
+    {
+        return ['mastockinfo-stock-widget'];
+    }
+
+    public function get_style_depends()
+    {
+        return ['mastockinfo-stock-widget'];
+    }
+
+    public function get_keywords()
+    {
+        return ['stock', 'widget'];
+    }
+
+
     protected function _register_controls()
     {
         $this->start_controls_section(
@@ -134,17 +150,34 @@ class Stock_Widget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        echo '<div class="stock-widget">';
-        echo '<h2>' . esc_html($settings['company_name']) . '</h2>';
-        echo '<p><strong>Website:</strong> <a href="' . esc_url($settings['website']) . '" target="_blank">' . esc_html($settings['website']) . '</a></p>';
-        echo '<p><strong>Industry:</strong> ' . esc_html($settings['industry']) . '</p>';
-        echo '<p><strong>Exchange ID:</strong> ' . esc_html($settings['exchange_id']) . '</p>';
-        echo '<p><strong>ISIN:</strong> ' . esc_html($settings['isin']) . '</p>';
-        echo '<p><strong>Symbol:</strong> ' . esc_html($settings['symbol']) . '</p>';
-        echo '<p><strong>Current Price:</strong> ' . esc_html($settings['current_price']) . '</p>';
-        echo '<p><strong>Course Objective:</strong> ' . esc_html($settings['course_objective']) . '</p>';
-        echo '<p><strong>Course Opportunity:</strong> ' . esc_html($settings['course_opportunity']) . '</p>';
-        echo '<p><strong>Recommendation:</strong> ' . esc_html($settings['recommendation']) . '</p>';
-        echo '</div>';
+        ?>
+        <div class="mastockinfo_sidebar">
+            <div class="mastockinfo_stock-info-box">
+                <h2><?php echo esc_html__('Stock Information', 'mastockinfo'); ?></h2>
+            </div>
+            <div class="mastockinfo_stock-info">
+                <div class="mastockinfo_company-info">
+                    <p><strong><?php echo esc_html($settings['company_name']); ?></strong></p>
+                    <p><?php echo esc_html__('Sector:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['industry']); ?></strong></p>
+                </div>
+    
+                <div class="mastockinfo_divider"></div>
+    
+                <div class="mastockinfo_stock-ticker">
+                    <p id="ticker1"><?php echo esc_html__('Exchange ID:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['exchange_id']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker1')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                </div>
+                <div class="mastockinfo_stock-ticker">
+                    <p id="ticker2"><?php echo esc_html__('Symbol:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['symbol']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker2')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                </div>
+                <div class="mastockinfo_stock-ticker">
+                    <p id="ticker3"><?php echo esc_html__('ISIN:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['isin']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker3')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                </div>
+            </div>
+        </div>
+        <?php
     }
+    
 }

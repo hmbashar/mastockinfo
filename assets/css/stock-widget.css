@@ -1,0 +1,121 @@
+body {
+    font-family: 'helvetica', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.mastockinfo_sidebar {
+    width: 100%;
+    max-width: 340px;
+    background-color: #f8f8f8;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.mastockinfo_stock-info-box {
+    background-color: #e6e6e6;
+    padding: 10px 15px;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.mastockinfo_stock-info {
+    padding: 20px;
+}
+
+.mastockinfo_stock-info-box h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.mastockinfo_company-info p {
+    margin: 5px 0;
+}
+
+.mastockinfo_investor-presentation {
+    margin: 20px 0;
+}
+
+.mastockinfo_presentation-btn {
+    background-color: #161176;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mastockinfo_presentation-btn img {
+    position: absolute;
+    right: 15px;
+    height: 20px;
+}
+
+.mastockinfo_presentation-btn:hover {
+    background-color: #0f337b;
+    color: white;
+}
+
+.mastockinfo_stock-ticker {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 7px;
+}
+
+.mastockinfo_stock-ticker p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.mastockinfo_copy-btn {
+    background-color: #161176;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    right: -5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mastockinfo_copy-btn:hover {
+    background-color: #0f337b;
+    color: white;
+}
+
+.mastockinfo_copy-btn::before {
+    content: "\1F4CB";
+    margin-right: 5px;
+}
+
+.mastockinfo_divider {
+    border-bottom: 1px solid #ccc;
+    margin: 15px 0;
+}
+
+.mastockinfo_subscribe-text p {
+    margin: 20px;
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
