@@ -73,6 +73,16 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
 
         $this->add_control(
+            'presentation',
+            [
+                'label' => __('Presentation', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'description' => __('Add presentation url here', 'mastockinfo'),
+            ]
+        );
+
+
+        $this->add_control(
             'industry',
             [
                 'label' => __('Industry', 'mastockinfo'),
@@ -247,7 +257,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><strong><?php echo esc_html__('Website', 'mastockinfo'); ?></strong></p>
-                        <a href="#" target="_blank"><?php echo esc_html($settings['website']); ?></a>
+                        <a href="<?php echo esc_html($settings['website']); ?>" target="_blank"><?php echo esc_html__( 'View Website', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
@@ -259,7 +269,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><strong><?php echo esc_html__('Presentation', 'mastockinfo'); ?></strong></p>
-                        <a href="#" target="_blank"><?php echo esc_html($settings['website']); ?></a>
+                        <a href="<?php echo esc_html($settings['presentation']); ?>" target="_blank"><?php echo esc_html__( 'Open', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                 </div><!--/ Company Info -->
@@ -269,7 +279,7 @@ class Stock_Widget extends \Elementor\Widget_Base
 
                 <!-- Stock Ticker/Exchange ID -->
                 <div class="mastockinfo_exchange-id">
-                    <h2><?php echo esc_html__('Exchange ID', 'mastockinfo'); ?></h2>
+                    <h2 class="mastockinfo_section-title"><?php echo esc_html__('Exchange ID', 'mastockinfo'); ?></h2>
 
                     <div class="mastockinfo_stock-ticker">
                         <p id="<?php echo esc_html($id); ?>-ticker1"><?php echo esc_html__('WKN:', 'mastockinfo'); ?>
@@ -298,7 +308,7 @@ class Stock_Widget extends \Elementor\Widget_Base
 
                 <!-- Course Data -->
                 <div class="mastockinfo_course-data">
-                    <h2><?php echo esc_html__('Course Data', 'mastockinfo'); ?></h2>
+                    <h2 class="mastockinfo_section-title"><?php echo esc_html__('Course Data', 'mastockinfo'); ?></h2>
 
                     <!-- Single Course Data -->
                     <div class="mastockinfo_single-course-data">

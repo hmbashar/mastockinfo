@@ -21,7 +21,11 @@ body {
     margin: 0;
     border-bottom: 1px solid #ccc;
 }
-
+.mastockinfo_company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .mastockinfo_stock-info {
     padding: 20px;
 }
@@ -66,20 +70,41 @@ body {
     background-color: #0f337b;
     color: white;
 }
-
+.mastockinfo_section-title {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.mastockinfo_course-data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.mastockinfo_single-course-data {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+.mastockinfo_single-course-data p {
+    margin-bottom: 0;
+    font-size: 15px;
+}
 .mastockinfo_stock-ticker {
-    background-color: #f4f4f4;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    margin-bottom: 7px;
 }
-
+.mastockinfo_exchange-id {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
 .mastockinfo_stock-ticker p {
     margin: 0;
     font-weight: 600;
+    font-size: 15px;
 }
 
 .mastockinfo_copy-btn {
@@ -118,4 +143,20 @@ body {
     font-size: 20px;
     color: #333;
     text-align: center;
+}
+.mastockinfo_single-company-info {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+}
+.mastockinfo_single-company-info a {
+    background-color: #161176;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 3px;
+    display: flex;
+    font-size: 15px;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
 }
