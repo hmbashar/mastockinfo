@@ -150,6 +150,7 @@ class Stock_Widget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
+        $id = $this->get_id();
         ?>
         <div class="mastockinfo_sidebar">
             <div class="mastockinfo_stock-info-box">
@@ -164,16 +165,16 @@ class Stock_Widget extends \Elementor\Widget_Base
                 <div class="mastockinfo_divider"></div>
     
                 <div class="mastockinfo_stock-ticker">
-                    <p id="ticker1"><?php echo esc_html__('Exchange ID:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['exchange_id']); ?></strong></p>
-                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker1')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                    <p id="<?php echo esc_html($id); ?>-ticker1"><?php echo esc_html__('Exchange ID:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['exchange_id']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                 </div>
                 <div class="mastockinfo_stock-ticker">
-                    <p id="ticker2"><?php echo esc_html__('Symbol:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['symbol']); ?></strong></p>
-                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker2')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                    <p id="<?php echo esc_html($id); ?>-ticker2"><?php echo esc_html__('Symbol:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['symbol']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                 </div>
                 <div class="mastockinfo_stock-ticker">
-                    <p id="ticker3"><?php echo esc_html__('ISIN:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['isin']); ?></strong></p>
-                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('ticker3')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                    <p id="<?php echo esc_html($id); ?>-ticker3"><?php echo esc_html__('ISIN:', 'mastockinfo'); ?> <strong><?php echo esc_html($settings['isin']); ?></strong></p>
+                    <button class="mastockinfo_copy-btn" onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                 </div>
             </div>
         </div>
