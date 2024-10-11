@@ -71,6 +71,16 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
 
         $this->add_control(
+            'company_url',
+            [
+                'label' => __('Company URL', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::TEXT,
+                'default' => __('https://greenbridgemetals.com', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->add_control(
             'website',
             [
                 'label' => __('Website', 'mastockinfo'),
@@ -874,13 +884,13 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><span><?php echo esc_html($settings['company_name']); ?></span></p>
-                        <a href="#" target="_blank"><?php echo esc_html__('Website', 'mastockinfo'); ?></a>
+                        <a href="<?php echo esc_url($settings['company_url']); ?>" target="_blank"><?php echo esc_html__('To the portrait', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><span><?php echo esc_html__('Website', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_html($settings['website']); ?>"
+                        <a href="<?php echo esc_url($settings['website']); ?>"
                             target="_blank"><?php echo esc_html__('Visit', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
@@ -893,7 +903,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><span><?php echo esc_html__('Presentation', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_html($settings['presentation']); ?>"
+                        <a href="<?php echo esc_url($settings['presentation']); ?>"
                             target="_blank"><?php echo esc_html__('Open', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
