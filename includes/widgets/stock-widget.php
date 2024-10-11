@@ -49,7 +49,7 @@ class Stock_Widget extends \Elementor\Widget_Base
         $this->start_controls_section(
             'content_section',
             [
-                'label' => __('Content', 'mastockinfo'),
+                'label' => __('General', 'mastockinfo'),
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
@@ -90,7 +90,18 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => __('Commodities', 'mastockinfo'),
             ]
         );
+ 
+        $this->end_controls_section(); // end section
 
+        
+        // Exchange section
+        $this->start_controls_section(
+            'section_exchange',
+            [
+                'label' => __('Exchange', 'mastockinfo'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+            ]
+        );
         $this->add_control(
             'exchange_id',
             [
@@ -115,6 +126,17 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Symbol', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'J48',
+            ]
+        );
+  
+        $this->end_controls_section(); // end section
+        
+        // Course data section
+        $this->start_controls_section(
+            'section_course_data',
+            [
+                'label' => __('Course data', 'mastockinfo'),
+                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -162,54 +184,6 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
         $this->end_controls_section(); // end section
 
-
-
-        // Labels section
-        $this->start_controls_section(
-            'section_labels',
-            [
-                'label' => __('Labels', 'mastockinfo'),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'price_label',
-            [
-                'label' => __('Price', 'mastockinfo'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Current Price', 'mastockinfo'),
-            ]
-        );
-
-        $this->add_control(
-            'course_objective_label',
-            [
-                'label' => __('Course Objective', 'mastockinfo'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Course Objective', 'mastockinfo'),
-            ]
-        );
-
-        $this->add_control(
-            'course_opportunity_label',
-            [
-                'label' => __('Course Opportunity', 'mastockinfo'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Course Opportunity', 'mastockinfo'),
-            ]
-        );
-
-        $this->add_control(
-            'recommendation_label',
-            [
-                'label' => __('Recommendation', 'mastockinfo'),
-                'type' => \Elementor\Controls_Manager::TEXT,
-                'default' => __('Recommendation', 'mastockinfo'),
-            ]
-        );
-
-        $this->end_controls_section();
     }
 
     protected function render()
