@@ -525,6 +525,221 @@ class Stock_Widget extends \Elementor\Widget_Base
 
         $this->end_controls_section(); // end style section for company info
 
+        $this->start_controls_section(
+            'section_exchange_style',
+            [
+                'label' => __('Exchange', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'exchange_heading_color',
+            [
+                'label' => __('Heading Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_exchange-id .mastockinfo_section-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'exchange_heading_typography',
+                'label' => __('Heading Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_exchange-id .mastockinfo_section-title',
+            ]
+        );
+
+        $this->add_control(
+            'exchange_content_color',
+            [
+                'label' => __('Content Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_stock-ticker p' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'exchange_content_typography',
+                'label' => __('Content Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_stock-ticker p',
+            ]
+        );
+
+        
+        $this->add_control(
+            'exchange_button_width',
+            [
+                'label' => __('Button Width', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'separator' => 'before',
+                'size_units' => ['px', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 70,
+                        'max' => 300,
+                        'step' => 5,
+                    ],
+                    '%' => [
+                        'min' => 20,
+                        'max' => 100,
+                        'step' => 1,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'exchange_button_typography',
+                'label' => __('Button Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_copy-btn',
+            ]
+        );
+        $this->add_responsive_control(
+            'exchange_button_icon_size',
+            [
+                'label' => __('Icon Size', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 10,
+                        'max' => 80,
+                        'step' => 5,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        
+        $this->add_responsive_control(
+            'exchange_button_padding',
+            [
+                'label' => __('Button Padding', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'exchange_button_border',
+                'label' => __('Border', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_copy-btn',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'exchange_button_border_radius',
+            [
+                'label' => __('Border Radius', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        // tabs
+        $this->start_controls_tabs('exchange_button_tabs');
+        // tab for button normal
+        $this->start_controls_tab(
+            'exchange_button_normal',
+            [
+                'label' => __('Normal', 'mastockinfo'),
+            ]
+        );
+
+        $this->add_control(
+            'exchange_button_normal_text_color',
+            [
+                'label' => __('Button Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn' => 'color: {{VALUE}};',
+                    '{{WRAPPER}} .mastockinfo_copy-btn svg path' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'exchange_button_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_copy-btn',
+                'fields_options' => [
+                    'background' => [
+                        'label' => __('Button Background', 'mastockinfo'),
+                    ],
+                ],
+            ]
+        );
+
+        $this->end_controls_tab(); // end tab for button normal
+
+        // start tab for button hover
+        $this->start_controls_tab(
+            'exchange_button_hover',
+            [
+                'label' => __('Hover', 'mastockinfo'),
+            ]
+        );
+
+        $this->add_control(
+            'exchange_button_hover_text_color',
+            [
+                'label' => __('Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_copy-btn:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'exchange_button_hover_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_copy-btn:hover',
+                'fields_options' => [
+                    'background' => [
+                        'label' => __('Button Background', 'mastockinfo'),
+                    ],
+                ],
+            ]
+        );
+
+        $this->end_controls_tab(); // end tab for button hover
+
+        $this->end_controls_tabs(); // end tabs for button normal and hover
+
+        
+        $this->end_controls_section(); // end style section for exchange
+
     }
 
     public function get_copy_icon()
