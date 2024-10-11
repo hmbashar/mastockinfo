@@ -6,6 +6,12 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
 }
 
+use Elementor\Controls_Manager;
+use Elementor\Group_Control_Background;
+use Elementor\Group_Control_Border;
+use Elementor\Group_Control_Typography;
+
+
 class Stock_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
@@ -60,6 +66,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Company Name', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => __('Green Bridge Metals Corp.', 'mastockinfo'),
+                'label_block' => true,
             ]
         );
 
@@ -69,6 +76,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Website', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => 'https://greenbridgemetals.com/',
+                'label_block' => true,
             ]
         );
 
@@ -78,6 +86,8 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Presentation', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'description' => __('Add presentation url here', 'mastockinfo'),
+                'label_block' => true,
+                'placeholder' => 'input presentation url here',
             ]
         );
 
@@ -90,10 +100,10 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => __('Commodities', 'mastockinfo'),
             ]
         );
- 
+
         $this->end_controls_section(); // end section
 
-        
+
         // Exchange section
         $this->start_controls_section(
             'section_exchange',
@@ -128,9 +138,9 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => 'J48',
             ]
         );
-  
+
         $this->end_controls_section(); // end section
-        
+
         // Course data section
         $this->start_controls_section(
             'section_course_data',
@@ -184,11 +194,347 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
         $this->end_controls_section(); // end section
 
+        $this->start_controls_section(
+            'general_style',
+            [
+                'label' => __('General', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_responsive_control(
+            'sidebar_width',
+            [
+                'label' => __('Width', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', '%', 'em'],
+                'range' => [
+                    'px' => [
+                        'min' => 100,
+                        'max' => 800,
+                    ],
+                    '%' => [
+                        'min' => 10,
+                        'max' => 100,
+                    ],
+                    'em' => [
+                        'min' => 5,
+                        'max' => 40,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_sidebar' => 'width: {{SIZE}}{{UNIT}};max-width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'sidebar_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_sidebar',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'content_padding',
+            [
+                'label' => __('Padding', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_sidebar' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'border',
+                'label' => __('Border', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_sidebar',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'border_radius',
+            [
+                'label' => __('Border Radius', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_sidebar' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+        $this->end_controls_section(); // end section
+
+
+        // style section for heading
+        $this->start_controls_section(
+            'section_style_heading',
+            [
+                'label' => __('Heading', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'heading_typography',
+                'label' => __('Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_stock-info-box h2',
+            ]
+        );
+
+        $this->add_control(
+            'heading_color',
+            [
+                'label' => __('Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_stock-info-box h2' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'heading_padding',
+            [
+                'label' => __('Padding', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_stock-info-box' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'heading_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_stock-info-box',
+            ]
+        );
+
+        $this->end_controls_section(); // end style section for heading
+
+
+        $this->start_controls_section(
+            'company_info_style',
+            [
+                'label' => __('Company Info', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'company_info_gap',
+            [
+                'label' => __('Gap', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 5,
+                        'max' => 200,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_company-info' => 'gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'company_info_typography',
+                'label' => __('Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_single-company-info p, {{WRAPPER}} .mastockinfo_single-company-info p span',
+            ]
+        );
+
+        $this->add_control(
+            'company_info_color',
+            [
+                'label' => __('Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}}  .mastockinfo_single-company-info p' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'button_typography',
+                'label' => __('Button Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_single-company-info a',
+                'separator' => 'before',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'company_info_button_width',
+            [
+                'label' => __('Button Width', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 1000,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a' => 'width: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'company_info_button_padding',
+            [
+                'label' => __('Button Padding', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'company_info_button_border',
+                'label' => __('Button Border', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_single-company-info a',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'company_info_button_border_radius',
+            [
+                'label' => __('Button Border Radius', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs(
+            'company_info_button_tabs'
+        );
+
+        $this->start_controls_tab(
+            'company_info_button_normal_tab',
+            [
+                'label' => esc_html__( 'Normal', 'mastockinfo' ),
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'company_info_button_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'separator' => 'before',
+                'selector' => '{{WRAPPER}} .mastockinfo_single-company-info a',
+                'fields_options' => [
+                    'background' => [
+                        'label' => __('Button Background', 'mastockinfo'),
+                    ],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'company_info_button_text_color',
+            [
+                'label' => __('Button Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'company_info_button_hover_tab',
+            [
+                'label' => esc_html__( 'Hover', 'mastockinfo' ),
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'company_info_button_background_hover',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'separator' => 'before',
+                'selector' => '{{WRAPPER}} .mastockinfo_single-company-info a:hover',
+                'fields_options' => [
+                    'background' => [
+                        'label' => __('Button Background', 'mastockinfo'),
+                    ],
+                ]
+            ]
+        );
+
+        $this->add_control(
+            'company_info_button_text_color_hover',
+            [
+                'label' => __('Button Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a:hover' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_control(
+            'company_info_button_border_color_hover',
+            [
+                'label' => __('Button Border Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-company-info a:hover' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs(); // end tabs for normal and hover
+
+        $this->end_controls_section(); // end style section for company info
+
     }
 
-    public function get_copy_icon() {
+    public function get_copy_icon()
+    {
         ?>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l140.1 0L400 115.9 400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-204.1c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-32-48 0 0 32c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l32 0 0-48-32 0z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+            <path
+                d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l140.1 0L400 115.9 400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-204.1c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-32-48 0 0 32c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l32 0 0-48-32 0z" />
+        </svg>
         <?php
     }
 
@@ -237,7 +583,8 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><span><?php echo esc_html__('Website', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_html($settings['website']); ?>" target="_blank"><?php echo esc_html__( 'View Website', 'mastockinfo'); ?></a>
+                        <a href="<?php echo esc_html($settings['website']); ?>"
+                            target="_blank"><?php echo esc_html__('Visit', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
@@ -249,7 +596,8 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
                         <p><span><?php echo esc_html__('Presentation', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_html($settings['presentation']); ?>" target="_blank"><?php echo esc_html__( 'Open', 'mastockinfo'); ?></a>
+                        <a href="<?php echo esc_html($settings['presentation']); ?>"
+                            target="_blank"><?php echo esc_html__('Open', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                 </div><!--/ Company Info -->
@@ -262,21 +610,24 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <h2 class="mastockinfo_section-title"><?php echo esc_html__('Exchange ID', 'mastockinfo'); ?></h2>
 
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker1"><span><?php echo esc_html__('WKN:', 'mastockinfo'); ?></span>
+                        <p id="<?php echo esc_html($id); ?>-ticker1">
+                            <span><?php echo esc_html__('WKN:', 'mastockinfo'); ?></span>
                             <?php echo esc_html($settings['exchange_id']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
                             onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                     </div>
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker2"><span><?php echo esc_html__('Symbol:', 'mastockinfo'); ?></span>
+                        <p id="<?php echo esc_html($id); ?>-ticker2">
+                            <span><?php echo esc_html__('Symbol:', 'mastockinfo'); ?></span>
                             <?php echo esc_html($settings['symbol']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
                             onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                     </div>
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker3"><span><?php echo esc_html__('ISIN:', 'mastockinfo'); ?></span>
+                        <p id="<?php echo esc_html($id); ?>-ticker3">
+                            <span><?php echo esc_html__('ISIN:', 'mastockinfo'); ?></span>
                             <?php echo esc_html($settings['isin']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
