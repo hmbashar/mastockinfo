@@ -227,6 +227,17 @@ class Stock_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'divider_border_color',
+            [
+                'label' => __('Divider Color', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_divider' => 'border-color: {{VALUE}};',
+                ],
+            ]
+        );
+
         $this->add_group_control(
             Group_Control_Background::get_type(),
             [
@@ -734,11 +745,82 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
 
         $this->end_controls_tab(); // end tab for button hover
-
-        $this->end_controls_tabs(); // end tabs for button normal and hover
-
-        
+        $this->end_controls_tabs(); // end tabs for button normal and hover        
         $this->end_controls_section(); // end style section for exchange
+
+
+        // start controls section for course data
+        $this->start_controls_section(
+            'course_data_style',
+            [
+                'label' => __('Course Data', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+        $this->add_control(
+            'course_data_heading_color',
+            [
+                'label' => __('Heading Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_course-data .mastockinfo_section-title' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'course_data_heading_typography',
+                'label' => __('Heading Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_course-data .mastockinfo_section-title',
+            ]
+        );
+
+        $this->add_control(
+            'course_data_text_color',
+            [
+                'label' => __('Text Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-course-data p strong' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+    
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'course_data_typography',
+                'label' => __('Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_single-course-data p strong',
+            ]
+        );
+
+        $this->add_control(
+            'course_data_price_text_color',
+            [
+                'label' => __('Price Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))' => 'color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Typography::get_type(),
+            [
+                'name' => 'course_data_price_typography',
+                'label' => __('Price Typography', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))',
+            ]
+        );
+
+
+
+        $this->end_controls_section(); // end style section for course data
 
     }
 
