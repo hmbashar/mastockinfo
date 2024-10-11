@@ -186,6 +186,12 @@ class Stock_Widget extends \Elementor\Widget_Base
 
     }
 
+    public function get_copy_icon() {
+        ?>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M384 336l-192 0c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l140.1 0L400 115.9 400 320c0 8.8-7.2 16-16 16zM192 384l192 0c35.3 0 64-28.7 64-64l0-204.1c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1L192 0c-35.3 0-64 28.7-64 64l0 256c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64L0 448c0 35.3 28.7 64 64 64l192 0c35.3 0 64-28.7 64-64l0-32-48 0 0 32c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l32 0 0-48-32 0z"/></svg>
+        <?php
+    }
+
     protected function render()
     {
         $settings = $this->get_settings_for_display();
@@ -224,25 +230,25 @@ class Stock_Widget extends \Elementor\Widget_Base
                 <div class="mastockinfo_company-info">
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
-                        <p><strong><?php echo esc_html($settings['company_name']); ?></strong></p>
+                        <p><span><?php echo esc_html($settings['company_name']); ?></span></p>
                         <a href="#" target="_blank"><?php echo esc_html__('Website', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
-                        <p><strong><?php echo esc_html__('Website', 'mastockinfo'); ?></strong></p>
+                        <p><span><?php echo esc_html__('Website', 'mastockinfo'); ?></span></p>
                         <a href="<?php echo esc_html($settings['website']); ?>" target="_blank"><?php echo esc_html__( 'View Website', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
-                        <p><strong><?php echo esc_html__('Industry', 'mastockinfo'); ?></strong></p>
+                        <p><span><?php echo esc_html__('Industry', 'mastockinfo'); ?></span></p>
                         <p><?php echo esc_html($settings['industry']); ?></p>
                     </div><!--/ Single Company Info -->
 
                     <!-- Single Company Info -->
                     <div class="mastockinfo_single-company-info">
-                        <p><strong><?php echo esc_html__('Presentation', 'mastockinfo'); ?></strong></p>
+                        <p><span><?php echo esc_html__('Presentation', 'mastockinfo'); ?></span></p>
                         <a href="<?php echo esc_html($settings['presentation']); ?>" target="_blank"><?php echo esc_html__( 'Open', 'mastockinfo'); ?></a>
                     </div><!--/ Single Company Info -->
 
@@ -256,25 +262,25 @@ class Stock_Widget extends \Elementor\Widget_Base
                     <h2 class="mastockinfo_section-title"><?php echo esc_html__('Exchange ID', 'mastockinfo'); ?></h2>
 
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker1"><?php echo esc_html__('WKN:', 'mastockinfo'); ?>
-                            <strong><?php echo esc_html($settings['exchange_id']); ?></strong>
+                        <p id="<?php echo esc_html($id); ?>-ticker1"><span><?php echo esc_html__('WKN:', 'mastockinfo'); ?></span>
+                            <?php echo esc_html($settings['exchange_id']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                     </div>
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker2"><?php echo esc_html__('Symbol:', 'mastockinfo'); ?>
-                            <strong><?php echo esc_html($settings['symbol']); ?></strong>
+                        <p id="<?php echo esc_html($id); ?>-ticker2"><span><?php echo esc_html__('Symbol:', 'mastockinfo'); ?></span>
+                            <?php echo esc_html($settings['symbol']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                     </div>
                     <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker3"><?php echo esc_html__('ISIN:', 'mastockinfo'); ?>
-                            <strong><?php echo esc_html($settings['isin']); ?></strong>
+                        <p id="<?php echo esc_html($id); ?>-ticker3"><span><?php echo esc_html__('ISIN:', 'mastockinfo'); ?></span>
+                            <?php echo esc_html($settings['isin']); ?>
                         </p>
                         <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
+                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
                     </div>
                 </div> <!--/ Stock Ticker/Exchange ID -->
 

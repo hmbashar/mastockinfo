@@ -1,9 +1,8 @@
-body {
-    font-family: 'helvetica', serif;
-    margin: 0;
-    padding: 0;
+:root {
+    --mastockinfo-primary-color: #2e86de;
+    --mastockinfo-hover-color: #54a0ff;
+    --mastockinfo-secondary-color: #f8f8f8;
 }
-
 .mastockinfo_sidebar {
     width: 100%;
     max-width: 500px;
@@ -11,10 +10,11 @@ body {
     padding: 0;
     border: 1px solid #ccc;
     border-radius: 10px;
+    border-top-color: var(--mastockinfo-primary-color);
 }
 
 .mastockinfo_stock-info-box {
-    background-color: #e6e6e6;
+    background-color: var(--mastockinfo-primary-color);
     padding: 10px 15px;
     border-radius: 10px 10px 0 0;
     text-align: center;
@@ -34,6 +34,7 @@ body {
     margin: 0;
     font-size: 20px;
     font-weight: bold;
+    color: #fff;
 }
 
 .mastockinfo_company-info p {
@@ -45,7 +46,7 @@ body {
 }
 
 .mastockinfo_presentation-btn {
-    background-color: #161176;
+    background-color: var(--mastockinfo-primary-color);
     color: white;
     padding: 10px;
     border: none;
@@ -67,7 +68,7 @@ body {
 }
 
 .mastockinfo_presentation-btn:hover {
-    background-color: #0f337b;
+    background-color: var(--mastockinfo-hover-color);
     color: white;
 }
 .mastockinfo_section-title {
@@ -106,9 +107,12 @@ body {
     font-weight: 600;
     font-size: 15px;
 }
+.mastockinfo_stock-ticker span {
+    font-weight: 600;
+}
 
 .mastockinfo_copy-btn {
-    background-color: #161176;
+    background-color: var(--mastockinfo-primary-color);
     color: white;
     padding: 5px 10px;
     border: none;
@@ -124,15 +128,22 @@ body {
 }
 
 .mastockinfo_copy-btn:hover {
-    background-color: #0f337b;
+    background-color: var(--mastockinfo-hover-color);
     color: white;
 }
 
-.mastockinfo_copy-btn::before {
+/* .mastockinfo_copy-btn::before {
     content: "\1F4CB";
     margin-right: 5px;
+} */
+.mastockinfo_copy-btn svg {
+    width: 15px;
+    height: auto;
+    margin-right: 5px;
 }
-
+.mastockinfo_copy-btn svg path {
+    fill: white;
+}
 .mastockinfo_divider {
     border-bottom: 1px solid #ccc;
     margin: 15px 0;
@@ -150,7 +161,7 @@ body {
     justify-content: space-between;
 }
 .mastockinfo_single-company-info a {
-    background-color: #161176;
+    background-color: #2e86de;
     color: #fff;
     padding: 5px 8px;
     border-radius: 3px;
@@ -159,4 +170,10 @@ body {
     line-height: 1;
     align-items: center;
     justify-content: center;
+}
+.mastockinfo_single-company-info span {
+    font-weight: 600;
+}
+.mastockinfo_single-company-info a:hover{
+    background-color:#54a0ff;
 }
