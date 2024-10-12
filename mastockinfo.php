@@ -44,9 +44,9 @@ class Mastockinfo_Plugin
     {
         // Enqueue the CSS file
         wp_register_style('mastockinfo-stock-widget', MASTOCKINFO_PLUGIN_URL . 'assets/css/stock-widget.css');
-
-        // Enqueue the JS file
-        wp_register_script( 'mastockinfo-stock-widget', MASTOCKINFO_PLUGIN_URL . 'assets/js/stock-widget.js', [], '1.0', true );
+ 
+        wp_register_script( 'mastockinfo-stock-widget', MASTOCKINFO_PLUGIN_URL . 'assets/js/stock-widget.js', ['jquery'], '1.0', true );
+           
     }
 
 

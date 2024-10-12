@@ -60,6 +60,15 @@ class Stock_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        //icon
+        $this->add_control(
+			'main_icon',
+			[
+				'label' => esc_html__( 'Icon', 'mastockinfo' ),
+				'type' => \Elementor\Controls_Manager::ICONS,			
+			]
+		);
+
         $this->add_control(
             'company_name',
             [

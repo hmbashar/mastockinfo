@@ -135,7 +135,11 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
         </div>
     </div><!--/ Sidebar -->
 
-    <div class="mastockinfo_main_icons">
-        <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/main-icon.php'; ?>
+    <div class="mastockinfo_main_icons">       
+        <?php if (isset($settings['main_icon']['library']) && !empty($settings['main_icon']['library'])): ?>
+            <?php \Elementor\Icons_Manager::render_icon( $settings['main_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+        <?php else: ?>
+            <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/main-icon.php'; ?>
+        <?php endif; ?>     
     </div>
 </div>

@@ -11,6 +11,22 @@
     border: 1px solid #ccc;
     border-radius: 10px;
     border-top-color: var(--mastockinfo-primary-color);
+
+    max-height: 0; /* Initially collapsed */
+    opacity: 0; /* Initially transparent */
+    transform: translateY(20px) scale(0.9); /* Slide from bottom and scale down */
+    transition: max-height 0.6s ease-in-out, 
+                opacity 0.6s ease-in-out, 
+                transform 0.6s ease-in-out; /* Smooth transition for all properties */
+    overflow: hidden; /* Hide overflowing content when collapsed */
+    position: absolute;
+    right: 5px;
+    bottom: 60px;
+}
+.mastockinfo_sidebar.show {
+    max-height: 900px; /* Large enough to contain sidebar content */
+    opacity: 1; /* Fully visible */
+    transform: translateY(0) scale(1); /* Move into position and scale to full size */
 }
 
 .mastockinfo_stock-info-box {
@@ -200,32 +216,10 @@
 }
 
 
-.mastockinfo_sidebar {
-    max-height: 0; /* Initially collapsed */
-    opacity: 0; /* Initially transparent */
-    /* transform: translateY(20px) scale(0.9); Slide from bottom and scale down */
-    transition: max-height 0.6s ease-in-out, 
-                opacity 0.6s ease-in-out, 
-                transform 0.6s ease-in-out; /* Smooth transition for all properties */
-    overflow: hidden; /* Hide overflowing content when collapsed */
-}
-
-.mastockinfo_sidebar.show {
-    max-height: 900px; /* Large enough to contain sidebar content */
-    opacity: 1; /* Fully visible */
-    /* transform: translateY(0) scale(1); Move into position and scale to full size */
-    animation: slideUp 0.7s ease-in-out;
-}
-
-@keyframes slideUp {
-    0% {
-        transform: translateY(20px) scale(0.9);
-    }
-    50% {
-        transform: translateY(-5px) scale(1.05);
-    }
-    100% {
-        transform: translateY(0) scale(1);
+/* Mobile styles */
+@media only screen and (max-width: 600px) {
+    .mastockinfo_sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
     }
 }
-
