@@ -4,7 +4,7 @@
     --mastockinfo-secondary-color: #f8f8f8;
 }
 .mastockinfo_sidebar {
-    width: 100%;
+    width: 500px;
     max-width: 500px;
     background-color: #f8f8f8;
     padding: 0;
@@ -179,7 +179,9 @@
 }
 
 .mastockinfo_main_icons {
-
+    text-align: right;
+    margin-right: 15px;
+    margin-top: 15px;
 }
 .mastockinfo_main_icons svg {
     width: 50px;
@@ -193,3 +195,37 @@
 .mastockinfo_main_icons svg path {
     fill: white;
 }
+.mastock-information-wrapper {
+    position: relative;
+}
+
+
+.mastockinfo_sidebar {
+    max-height: 0; /* Initially collapsed */
+    opacity: 0; /* Initially transparent */
+    /* transform: translateY(20px) scale(0.9); Slide from bottom and scale down */
+    transition: max-height 0.6s ease-in-out, 
+                opacity 0.6s ease-in-out, 
+                transform 0.6s ease-in-out; /* Smooth transition for all properties */
+    overflow: hidden; /* Hide overflowing content when collapsed */
+}
+
+.mastockinfo_sidebar.show {
+    max-height: 900px; /* Large enough to contain sidebar content */
+    opacity: 1; /* Fully visible */
+    /* transform: translateY(0) scale(1); Move into position and scale to full size */
+    animation: slideUp 0.7s ease-in-out;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px) scale(0.9);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+}
+
