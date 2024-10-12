@@ -59,10 +59,10 @@ class Mastockinfo_Plugin
         }
 
         // Include widget file
-        require_once MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/stock-widget.php';
+        require_once MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/stock-widget.php';
 
         // Register the widget with Elementor
-        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MSSTOCKINFO\Includes\Widgets\Stock_Widget());
+        \Elementor\Plugin::instance()->widgets_manager->register_widget_type(new \MSSTOCKINFO\Includes\Widgets\StockWidget\Stock_Widget());
     }
 }
 
