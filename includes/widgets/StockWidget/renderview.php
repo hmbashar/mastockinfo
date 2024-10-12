@@ -1,4 +1,4 @@
-<?php 
+<?php
 //don't call this file directly
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly
@@ -29,107 +29,110 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
 
 
 ?>
+<div class="mastock-information-wrapper">
 
-<div class="mastockinfo_sidebar">
-            <div class="mastockinfo_stock-info-box">
-                <h2><?php echo esc_html__('Stock Information', 'mastockinfo'); ?></h2>
-            </div>
-            <div class="mastockinfo_stock-info">
-
-                <!-- Company Info -->
-                <div class="mastockinfo_company-info">
-                    <!-- Single Company Info -->
-                    <div class="mastockinfo_single-company-info">
-                        <p><span><?php echo esc_html($settings['company_name']); ?></span></p>
-                        <a href="<?php echo esc_url($settings['company_url']); ?>" target="_blank"><?php echo esc_html__('To the portrait', 'mastockinfo'); ?></a>
-                    </div><!--/ Single Company Info -->
-
-                    <!-- Single Company Info -->
-                    <div class="mastockinfo_single-company-info">
-                        <p><span><?php echo esc_html__('Website', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_url($settings['website']); ?>"
-                            target="_blank"><?php echo esc_html__('Visit', 'mastockinfo'); ?></a>
-                    </div><!--/ Single Company Info -->
-
-                    <!-- Single Company Info -->
-                    <div class="mastockinfo_single-company-info">
-                        <p><span><?php echo esc_html__('Industry', 'mastockinfo'); ?></span></p>
-                        <p><?php echo esc_html($settings['industry']); ?></p>
-                    </div><!--/ Single Company Info -->
-
-                    <!-- Single Company Info -->
-                    <div class="mastockinfo_single-company-info">
-                        <p><span><?php echo esc_html__('Presentation', 'mastockinfo'); ?></span></p>
-                        <a href="<?php echo esc_url($settings['presentation']); ?>"
-                            target="_blank"><?php echo esc_html__('Open', 'mastockinfo'); ?></a>
-                    </div><!--/ Single Company Info -->
-
-                </div><!--/ Company Info -->
-
-                <div class="mastockinfo_divider"></div>
-
-
-                <!-- Stock Ticker/Exchange ID -->
-                <div class="mastockinfo_exchange-id">
-                    <h2 class="mastockinfo_section-title"><?php echo esc_html__('Exchange ID', 'mastockinfo'); ?></h2>
-
-                    <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker1">
-                            <span><?php echo esc_html__('WKN:', 'mastockinfo'); ?></span>
-                            <?php echo esc_html($settings['exchange_id']); ?>
-                        </p>
-                        <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
-                    </div>
-                    <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker2">
-                            <span><?php echo esc_html__('Symbol:', 'mastockinfo'); ?></span>
-                            <?php echo esc_html($settings['symbol']); ?>
-                        </p>
-                        <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
-                    </div>
-                    <div class="mastockinfo_stock-ticker">
-                        <p id="<?php echo esc_html($id); ?>-ticker3">
-                            <span><?php echo esc_html__('ISIN:', 'mastockinfo'); ?></span>
-                            <?php echo esc_html($settings['isin']); ?>
-                        </p>
-                        <button class="mastockinfo_copy-btn"
-                            onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html__('Copy', 'mastockinfo'); ?></button>
-                    </div>
-                </div> <!--/ Stock Ticker/Exchange ID -->
-
-                <div class="mastockinfo_divider"></div>
-
-                <!-- Course Data -->
-                <div class="mastockinfo_course-data">
-                    <h2 class="mastockinfo_section-title"><?php echo esc_html__('Course Data', 'mastockinfo'); ?></h2>
-
-                    <!-- Single Course Data -->
-                    <div class="mastockinfo_single-course-data">
-                        <p>
-                            <strong><?php echo esc_html__('Current price:', 'mastockinfo'); ?></strong>
-                        </p>
-                        <p><?php echo esc_html($settings['current_price']); ?></p>
-                    </div><!--/ Single Course Data -->
-
-                    <!-- Single Course Data -->
-                    <div class="mastockinfo_single-course-data">
-                        <p>
-                            <strong><?php echo esc_html__('Course objective:', 'mastockinfo'); ?></strong>
-                        </p>
-                        <p><?php echo esc_html($settings['course_objective']); ?></p>
-                    </div><!--/ Single Course Data -->
-
-                    <!-- Single Course Data -->
-                    <div class="mastockinfo_single-course-data">
-                        <p>
-                            <strong><?php echo esc_html__('Price Opportunity:', 'mastockinfo'); ?></strong>
-                        </p>
-                        <p><?php echo esc_html($course_opportunity); ?>%</p>
-                    </div><!--/ Single Course Data -->
-
-
-                </div><!--/ Course Data -->
-            </div>
+    <div class="mastockinfo_sidebar">
+        <div class="mastockinfo_stock-info-box">
+            <h2><?php echo esc_html($settings['main_heading']); ?></h2>
         </div>
+        <div class="mastockinfo_stock-info">
+
+            <!-- Company Info -->
+            <div class="mastockinfo_company-info">
+                <!-- Single Company Info -->
+                <div class="mastockinfo_single-company-info">
+                    <p><span><?php echo esc_html($settings['company_name']); ?></span></p>
+                    <a href="<?php echo esc_url($settings['company_url']); ?>"
+                        target="_blank"><?php echo esc_html($settings['to_the_portrait']); ?></a>
+                </div><!--/ Single Company Info -->
+
+                <!-- Single Company Info -->
+                <div class="mastockinfo_single-company-info">
+                    <p><span><?php echo esc_html($settings['website_text']); ?></span></p>
+                    <a href="<?php echo esc_url($settings['website']); ?>"
+                        target="_blank"><?php echo esc_html($settings['visit_text']); ?></a>
+                </div><!--/ Single Company Info -->
+
+                <!-- Single Company Info -->
+                <div class="mastockinfo_single-company-info">
+                    <p><span><?php echo esc_html($settings['industry_text']); ?></span></p>
+                    <p><?php echo esc_html($settings['industry']); ?></p>
+                </div><!--/ Single Company Info -->
+
+                <!-- Single Company Info -->
+                <div class="mastockinfo_single-company-info">
+                    <p><span><?php echo esc_html($settings['presentation_text']); ?></span></p>
+                    <a href="<?php echo esc_url($settings['presentation']); ?>"
+                        target="_blank"><?php echo esc_html($settings['open_text']); ?></a>
+                </div><!--/ Single Company Info -->
+
+            </div><!--/ Company Info -->
+
+            <div class="mastockinfo_divider"></div>
+
+
+            <!-- Stock Ticker/Exchange ID -->
+            <div class="mastockinfo_exchange-id">
+                <h2 class="mastockinfo_section-title"><?php echo esc_html($settings['exchange_id_text']); ?></h2>
+
+                <div class="mastockinfo_stock-ticker">
+                    <p id="<?php echo esc_html($id); ?>-ticker1">
+                        <span><?php echo esc_html($settings['wkn_text']); ?>:</span>
+                        <?php echo esc_html($settings['exchange_id']); ?>
+                    </p>
+                    <button class="mastockinfo_copy-btn"
+                        onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker1')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html($settings['copy_text']); ?></button>
+                </div>
+                <div class="mastockinfo_stock-ticker">
+                    <p id="<?php echo esc_html($id); ?>-ticker2">
+                        <span><?php echo esc_html($settings['symbol_text']); ?>:</span>
+                        <?php echo esc_html($settings['symbol']); ?>
+                    </p>
+                    <button class="mastockinfo_copy-btn"
+                        onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker2')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html($settings['copy_text']); ?></button>
+                </div>
+                <div class="mastockinfo_stock-ticker">
+                    <p id="<?php echo esc_html($id); ?>-ticker3">
+                        <span><?php echo esc_html($settings['isin_text']); ?></span>
+                        <?php echo esc_html($settings['isin']); ?>
+                    </p>
+                    <button class="mastockinfo_copy-btn"
+                        onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html($settings['copy_text']); ?></button>
+                </div>
+            </div> <!--/ Stock Ticker/Exchange ID -->
+
+            <div class="mastockinfo_divider"></div>
+
+            <!-- Course Data -->
+            <div class="mastockinfo_course-data">
+                <h2 class="mastockinfo_section-title"><?php echo esc_html($settings['course_data_text']); ?></h2>
+
+                <!-- Single Course Data -->
+                <div class="mastockinfo_single-course-data">
+                    <p>
+                        <strong><?php echo esc_html($settings['current_price_text']); ?>:</strong>
+                    </p>
+                    <p><?php echo esc_html($settings['current_price']); ?></p>
+                </div><!--/ Single Course Data -->
+
+                <!-- Single Course Data -->
+                <div class="mastockinfo_single-course-data">
+                    <p>
+                        <strong><?php echo esc_html($settings['course_objective_text']); ?>:</strong>
+                    </p>
+                    <p><?php echo esc_html($settings['course_objective']); ?></p>
+                </div><!--/ Single Course Data -->
+
+                <!-- Single Course Data -->
+                <div class="mastockinfo_single-course-data">
+                    <p>
+                        <strong><?php echo esc_html($settings['price_opportunity_text']); ?></strong>
+                    </p>
+                    <p><?php echo esc_html($course_opportunity); ?>%</p>
+                </div><!--/ Single Course Data -->
+
+
+            </div><!--/ Course Data -->
+        </div>
+    </div>
+</div>
