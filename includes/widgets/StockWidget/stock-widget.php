@@ -60,15 +60,6 @@ class Stock_Widget extends \Elementor\Widget_Base
             ]
         );
 
-        //icon
-        $this->add_control(
-			'main_icon',
-			[
-				'label' => esc_html__( 'Icon', 'mastockinfo' ),
-				'type' => \Elementor\Controls_Manager::ICONS,			
-			]
-		);
-
         $this->add_control(
             'company_name',
             [
@@ -117,6 +108,16 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Industry', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => __('Commodities', 'mastockinfo'),
+            ]
+        );
+
+
+        //icon
+        $this->add_control(
+            'main_icon',
+            [
+                'label' => esc_html__('Main Icon', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::ICONS,
             ]
         );
 
@@ -213,194 +214,194 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
         $this->end_controls_section(); // end section
 
-                // start controls section for labels
-                $this->start_controls_section(
-                    'labels_contents',
-                    [
-                        'label' => __('Labels', 'mastockinfo'),
-                        'tab' => Controls_Manager::TAB_CONTENT,
-                    ]
-                );
-                // main heading
-                $this->add_control(
-                    'main_heading',
-                    [
-                        'label' => __('Main Heading', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Stock Information', 'mastockinfo'),
-                        'placeholder' => __('Type your main heading here', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-        
-                // To the portrait
-                $this->add_control(
-                    'to_the_portrait',
-                    [
-                        'label' => __('To the portrait', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('To the portrait', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-        
-                // Website
-                $this->add_control(
-                    'website_text',
-                    [
-                        'label' => __('Website', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Website', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Visit
-                $this->add_control(
-                    'visit_text',
-                    [
-                        'label' => __('Visit', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Visit', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Industry
-                $this->add_control(
-                    'industry_text',
-                    [
-                        'label' => __('Industry', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Industry', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Presentation
-                $this->add_control(
-                    'presentation_text',
-                    [
-                        'label' => __('Presentation', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Presentation', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Open
-                $this->add_control(
-                    'open_text',
-                    [
-                        'label' => __('Open', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Open', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Exchange ID
-                $this->add_control(
-                    'exchange_id_text',
-                    [
-                        'label' => __('Exchange ID', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Exchange ID', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // WKN
-                $this->add_control(
-                    'wkn_text',
-                    [
-                        'label' => __('WKN', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('WKN', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Copy
-                $this->add_control(
-                    'copy_text',
-                    [
-                        'label' => __('Copy', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Copy', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Symbol
-                $this->add_control(
-                    'symbol_text',
-                    [
-                        'label' => __('Symbol', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Symbol', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // ISIN
-                $this->add_control(
-                    'isin_text',
-                    [
-                        'label' => __('ISIN', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('ISIN', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Course Data
-                $this->add_control(
-                    'course_data_text',
-                    [
-                        'label' => __('Course Data', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Course Data', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Current price
-                $this->add_control(
-                    'current_price_text',
-                    [
-                        'label' => __('Current price', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Current price', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Course objective
-                $this->add_control(
-                    'course_objective_text',
-                    [
-                        'label' => __('Course objective', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Course objective', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-                // Price Opportunity
-                $this->add_control(
-                    'price_opportunity_text',
-                    [
-                        'label' => __('Price Opportunity', 'mastockinfo'),
-                        'type' => Controls_Manager::TEXT,
-                        'default' => __('Price Opportunity', 'mastockinfo'),
-                        'placeholder' => __('type your text', 'mastockinfo'),                
-                        'label_block' => true,
-                    ]
-                );
-        
-                $this->end_controls_section(); // end content section for labels
+        // start controls section for labels
+        $this->start_controls_section(
+            'labels_contents',
+            [
+                'label' => __('Labels', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_CONTENT,
+            ]
+        );
+        // main heading
+        $this->add_control(
+            'main_heading',
+            [
+                'label' => __('Main Heading', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Stock Information', 'mastockinfo'),
+                'placeholder' => __('Type your main heading here', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+
+        // To the portrait
+        $this->add_control(
+            'to_the_portrait',
+            [
+                'label' => __('To the portrait', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('To the portrait', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+
+        // Website
+        $this->add_control(
+            'website_text',
+            [
+                'label' => __('Website', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Website', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Visit
+        $this->add_control(
+            'visit_text',
+            [
+                'label' => __('Visit', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Visit', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Industry
+        $this->add_control(
+            'industry_text',
+            [
+                'label' => __('Industry', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Industry', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Presentation
+        $this->add_control(
+            'presentation_text',
+            [
+                'label' => __('Presentation', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Presentation', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Open
+        $this->add_control(
+            'open_text',
+            [
+                'label' => __('Open', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Open', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Exchange ID
+        $this->add_control(
+            'exchange_id_text',
+            [
+                'label' => __('Exchange ID', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Exchange ID', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // WKN
+        $this->add_control(
+            'wkn_text',
+            [
+                'label' => __('WKN', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('WKN', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Copy
+        $this->add_control(
+            'copy_text',
+            [
+                'label' => __('Copy', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Copy', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Symbol
+        $this->add_control(
+            'symbol_text',
+            [
+                'label' => __('Symbol', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Symbol', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // ISIN
+        $this->add_control(
+            'isin_text',
+            [
+                'label' => __('ISIN', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('ISIN', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Course Data
+        $this->add_control(
+            'course_data_text',
+            [
+                'label' => __('Course Data', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Course Data', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Current price
+        $this->add_control(
+            'current_price_text',
+            [
+                'label' => __('Current price', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Current price', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Course objective
+        $this->add_control(
+            'course_objective_text',
+            [
+                'label' => __('Course objective', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Course objective', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+        // Price Opportunity
+        $this->add_control(
+            'price_opportunity_text',
+            [
+                'label' => __('Price Opportunity', 'mastockinfo'),
+                'type' => Controls_Manager::TEXT,
+                'default' => __('Price Opportunity', 'mastockinfo'),
+                'placeholder' => __('type your text', 'mastockinfo'),
+                'label_block' => true,
+            ]
+        );
+
+        $this->end_controls_section(); // end content section for labels
 
         $this->start_controls_section(
             'general_style',
@@ -488,6 +489,194 @@ class Stock_Widget extends \Elementor\Widget_Base
                 ],
             ]
         );
+        $this->end_controls_section(); // end section
+
+        // style section for icon
+        $this->start_controls_section(
+            'section_style_icon',
+            [
+                'label' => __('Main Icon', 'mastockinfo'),
+                'tab' => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        // icon size
+        $this->add_responsive_control(
+            'main_icon_size',
+            [
+                'label' => __('Size', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 25,
+                        'max' => 200,
+                    ],
+                    'em' => [
+                        'min' => 1,
+                        'max' => 20,
+                    ],
+                    '%' => [
+                        'min' => 5,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons svg' => 'width: {{SIZE}}{{UNIT}};height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        // content indent
+        $this->add_responsive_control(
+            'content_indent',
+            [
+                'label' => __('Content Indent', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px', 'em', '%'],
+                'range' => [
+                    'px' => [
+                        'min' => 0,
+                        'max' => 500,
+                    ],
+                    'em' => [
+                        'min' => 0,
+                        'max' => 50,
+                    ],
+                    '%' => [
+                        'min' => 0,
+                        'max' => 100,
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_sidebar' => 'bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+        // icon alignment
+        $this->add_responsive_control(
+            'main_icon_alignment',
+            [
+                'label' => __('Alignment', 'mastockinfo'),
+                'type' => Controls_Manager::CHOOSE,
+                'options' => [
+                    'left'    => [
+                        'title' => __('Left', 'mastockinfo'),
+                        'icon' => 'eicon-text-align-left',
+                    ],
+                    'center' => [
+                        'title' => __('Center', 'mastockinfo'),
+                        'icon' => 'eicon-text-align-center',
+                    ],
+                    'right' => [
+                        'title' => __('Right', 'mastockinfo'),
+                        'icon' => 'eicon-text-align-right',
+                    ],
+                ],
+                'default' => 'right',
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
+        // icon padding
+        $this->add_responsive_control(
+            'main_icon_padding',
+            [
+                'label' => __('Padding', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons svg' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'main_icon_border',
+                'label' => __('Border', 'mastockinfo'),
+                'selector' => '{{WRAPPER}} .mastockinfo_main_icons svg',
+            ]
+        );
+
+        $this->add_responsive_control(
+            'main_icon_border_radius',
+            [
+                'label' => __('Border Radius', 'mastockinfo'),
+                'type' => Controls_Manager::DIMENSIONS,
+                'size_units' => ['px', 'em', '%'],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons svg' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->start_controls_tabs('tabs_icon_colors');
+
+        $this->start_controls_tab(
+            'tab_icon_normal',
+            [
+                'label' => __('Normal', 'mastockinfo'),
+            ]
+        );
+
+        $this->add_control(
+            'main_icon_color',
+            [
+                'label' => __('Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons svg path' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'main_icon_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_main_icons svg',
+            ]
+        );
+
+        $this->end_controls_tab();
+
+        $this->start_controls_tab(
+            'tab_icon_hover',
+            [
+                'label' => __('Hover', 'mastockinfo'),
+            ]
+        );
+
+        $this->add_control(
+            'main_icon_hover_color',
+            [
+                'label' => __('Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_main_icons svg:hover' => 'fill: {{VALUE}};',
+                ],
+            ]
+        );
+        $this->add_group_control(
+            Group_Control_Background::get_type(),
+            [
+                'name' => 'main_icon_hover_background',
+                'label' => __('Background', 'mastockinfo'),
+                'types' => ['classic', 'gradient'],
+                'exclude' => ['image'],
+                'selector' => '{{WRAPPER}} .mastockinfo_main_icons svg:hover',
+            ]
+        );
+        $this->end_controls_tab();
+
+        $this->end_controls_tabs();
+
         $this->end_controls_section(); // end section
 
 
@@ -659,7 +848,7 @@ class Stock_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'company_info_button_normal_tab',
             [
-                'label' => esc_html__( 'Normal', 'mastockinfo' ),
+                'label' => esc_html__('Normal', 'mastockinfo'),
             ]
         );
         $this->add_group_control(
@@ -695,7 +884,7 @@ class Stock_Widget extends \Elementor\Widget_Base
         $this->start_controls_tab(
             'company_info_button_hover_tab',
             [
-                'label' => esc_html__( 'Hover', 'mastockinfo' ),
+                'label' => esc_html__('Hover', 'mastockinfo'),
             ]
         );
         $this->add_group_control(
@@ -792,7 +981,7 @@ class Stock_Widget extends \Elementor\Widget_Base
             ]
         );
 
-        
+
         $this->add_control(
             'exchange_button_width',
             [
@@ -843,7 +1032,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 ],
             ]
         );
-        
+
         $this->add_responsive_control(
             'exchange_button_padding',
             [
@@ -995,7 +1184,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 ],
             ]
         );
-    
+
 
         $this->add_group_control(
             Group_Control_Typography::get_type(),

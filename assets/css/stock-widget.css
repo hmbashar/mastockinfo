@@ -14,20 +14,33 @@
 
     max-height: 0; /* Initially collapsed */
     opacity: 0; /* Initially transparent */
-    transform: translateY(20px) scale(0.9); /* Slide from bottom and scale down */
+    transform: translateY(20px) scale(0.9);
     transition: max-height 0.6s ease-in-out, 
                 opacity 0.6s ease-in-out, 
-                transform 0.6s ease-in-out; /* Smooth transition for all properties */
-    overflow: hidden; /* Hide overflowing content when collapsed */
+                transform 0.6s ease-in-out;
+   overflow: hidden; 
     position: absolute;
     right: 5px;
     bottom: 60px;
+    z-index: 999;
 }
 .mastockinfo_sidebar.show {
     max-height: 900px; /* Large enough to contain sidebar content */
     opacity: 1; /* Fully visible */
-    transform: translateY(0) scale(1); /* Move into position and scale to full size */
+    transform: translateY(0) scale(1); /* Move into position and scale to full size */   
 }
+/* .mastockinfo_sidebar.show:after {
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    right: 17px;
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 13px 9.5px 0 9.5px;
+    border-color: #f8f8f8 transparent transparent transparent;
+    transform: rotate(0deg);
+} */
 
 .mastockinfo_stock-info-box {
     background-color: var(--mastockinfo-primary-color);
@@ -198,6 +211,8 @@
     text-align: right;
     margin-right: 15px;
     margin-top: 15px;
+    z-index: 999;
+    position: relative;
 }
 .mastockinfo_main_icons svg {
     width: 50px;
