@@ -31,6 +31,7 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
 ?>
 <div class="mastock-information-wrapper">
 
+    <!-- Sidebar -->
     <div class="mastockinfo_sidebar">
         <div class="mastockinfo_stock-info-box">
             <h2><?php echo esc_html($settings['main_heading']); ?></h2>
@@ -130,9 +131,11 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
                     </p>
                     <p><?php echo esc_html($course_opportunity); ?>%</p>
                 </div><!--/ Single Course Data -->
-
-
             </div><!--/ Course Data -->
         </div>
+    </div><!--/ Sidebar -->
+
+    <div class="mastockinfo_main_icons">
+        <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/main-icon.php'; ?>
     </div>
 </div>
