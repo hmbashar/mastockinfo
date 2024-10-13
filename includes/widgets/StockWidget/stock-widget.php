@@ -1236,6 +1236,62 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'selector' => '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))',
             ]
         );
+
+        $this->add_responsive_control(
+            'course_data_price_underline_color',
+            [
+                'label' => __('Underline Color', 'mastockinfo'),
+                'type' => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))::after' => 'background-color: {{VALUE}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'course_data_price_underline_weight',
+            [
+                'label' => __('Underline Weight', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => 1,
+                        'max' => 10,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 2,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))::after' => 'height: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->add_responsive_control(
+            'course_data_price_underline_indent',
+            [
+                'label' => __('Underline Indent', 'mastockinfo'),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => ['px'],
+                'range' => [
+                    'px' => [
+                        'min' => -20,
+                        'max' => 20,
+                    ],
+                ],
+                'default' => [
+                    'unit' => 'px',
+                    'size' => 0,
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .mastockinfo_single-course-data p:not(:has(strong))::after' => 'bottom: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
         $this->end_controls_section(); // end style section for course data
 
 
