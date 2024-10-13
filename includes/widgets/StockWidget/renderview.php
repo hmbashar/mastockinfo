@@ -116,21 +116,24 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
                     <p><?php echo esc_html($settings['current_price']); ?></p>
                 </div><!--/ Single Course Data -->
 
-                <!-- Single Course Data -->
-                <div class="mastockinfo_single-course-data">
-                    <p>
-                        <strong><?php echo esc_html($settings['course_objective_text']); ?>:</strong>
-                    </p>
-                    <p><?php echo esc_html($settings['course_objective']); ?></p>
-                </div><!--/ Single Course Data -->
+                <?php if('yes' === $settings['course_objective_switch']) : ?>
+                    <!-- Single Course Data -->
+                    <div class="mastockinfo_single-course-data">
+                        <p>
+                            <strong><?php echo esc_html($settings['course_objective_text']); ?>:</strong>
+                        </p>
+                        <p><?php echo esc_html($settings['course_objective']); ?></p>
+                    </div><!--/ Single Course Data -->
+                
 
-                <!-- Single Course Data -->
-                <div class="mastockinfo_single-course-data">
-                    <p>
-                        <strong><?php echo esc_html($settings['price_opportunity_text']); ?></strong>
-                    </p>
-                    <p><?php echo esc_html($course_opportunity); ?>%</p>
-                </div><!--/ Single Course Data -->
+                    <!-- Single Course Data -->
+                    <div class="mastockinfo_single-course-data">
+                        <p>
+                            <strong><?php echo esc_html($settings['price_opportunity_text']); ?></strong>
+                        </p>
+                        <p><?php echo esc_html($course_opportunity); ?>%</p>
+                    </div><!--/ Single Course Data -->
+                <?php endif; ?>
             </div><!--/ Course Data -->
         </div>
     </div><!--/ Sidebar -->

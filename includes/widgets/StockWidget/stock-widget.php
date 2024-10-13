@@ -179,12 +179,27 @@ class Stock_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        // Switch for course objective
+        $this->add_control(
+            'course_objective_switch',
+            [
+                'label' => __('Show course objective?', 'mastockinfo'),
+                'type' => Controls_Manager::SWITCHER,
+                'return_value' => 'yes',
+				'default' => 'yes',
+                'description' => __('Show or hide course objective', 'mastockinfo'),
+            ]
+        );
+
         $this->add_control(
             'course_objective',
             [
                 'label' => __('Course Objective', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => '0.25 €',
+                'condition' => [
+                    'course_objective_switch' => 'yes',
+                ],
             ]
         );
 
@@ -198,6 +213,9 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label_on' => __('Yes', 'mastockinfo'),
                 'label_off' => __('No', 'mastockinfo'),
                 'return_value' => 'yes',
+                'condition' => [
+                    'course_objective_switch' => 'yes',
+                ],
             ]
         );
 
@@ -209,6 +227,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => '9 %',
                 'condition' => [
                     'course_opportunity_auto_switch!' => 'yes',
+                    'course_objective_switch' => 'yes',
                 ],
             ]
         );
@@ -387,6 +406,9 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => __('Course objective', 'mastockinfo'),
                 'placeholder' => __('type your text', 'mastockinfo'),
                 'label_block' => true,
+                'condition' => [
+                    'course_objective_switch' => 'yes',
+                ]
             ]
         );
         // Price Opportunity
