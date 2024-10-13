@@ -120,6 +120,49 @@
     margin-bottom: 0;
     font-size: 15px;
 }
+.show .mastockinfo_single-course-data p:last-child {
+    position: relative;
+}
+.show .mastockinfo_single-course-data p:last-child::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0; /* Start with 0 width */
+    height: 4px;
+    border-radius: 3px;
+    background-color: var(--mastockinfo-primary-color);
+    transition: width 0.5s ease; /* Smooth transition */
+    animation: underlineGrow 0.5s ease forwards; /* Animate underline on load */
+}
+/* Define the keyframes */
+@keyframes underlineGrow {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* First item (no delay) */
+.show .mastockinfo_single-course-data:nth-child(1) p:last-child::after {
+    animation-delay: 0.3s;
+}
+
+/* Second item (delayed by 0.5s) */
+.show .mastockinfo_single-course-data:nth-child(2) p:last-child::after {
+    animation-delay: 0.5s;
+}
+
+/* Third item (delayed by 1s) */
+.show .mastockinfo_single-course-data:nth-child(3) p:last-child::after {
+    animation-delay: 1s;
+}
+/* Third item (delayed by 1.4s) */
+.show .mastockinfo_single-course-data:nth-child(4) p:last-child::after {
+    animation-delay: 1.4s;
+}
 .mastockinfo_stock-ticker {
     border-radius: 5px;
     display: flex;
