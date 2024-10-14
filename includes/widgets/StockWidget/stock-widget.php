@@ -276,7 +276,7 @@ class Stock_Widget extends \Elementor\Widget_Base
         $this->add_control(
             'to_the_portrait',
             [
-                'label' => __('To the portrait', 'mastockinfo'),
+                'label' => __('Portrait', 'mastockinfo'),
                 'type' => Controls_Manager::TEXT,
                 'default' => __('To the portrait', 'mastockinfo'),
                 'placeholder' => __('type your text', 'mastockinfo'),

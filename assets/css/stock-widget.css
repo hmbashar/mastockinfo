@@ -277,7 +277,8 @@
 /* Mobile styles */
 @media only screen and (max-width: 600px) {
     .mastockinfo_sidebar {
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 370px ;
+        max-width: 370px;
+        right: 0;
     }
 }
