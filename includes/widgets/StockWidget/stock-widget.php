@@ -112,11 +112,19 @@ class Stock_Widget extends \Elementor\Widget_Base
         );
 
 
-        //icon
+        //Open icon
         $this->add_control(
-            'main_icon',
+            'open-icon',
             [
-                'label' => esc_html__('Main Icon', 'mastockinfo'),
+                'label' => esc_html__('Open Icon', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::ICONS,
+            ]
+        );
+        //Close icon
+        $this->add_control(
+            'close-icon',
+            [
+                'label' => esc_html__('Close Icon', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::ICONS,
             ]
         );

@@ -101,9 +101,9 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
                         onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html($settings['copy_text']); ?></button>
                 </div>
             </div> <!--/ Stock Ticker/Exchange ID -->
-            
+
             <?php if ('yes' === $settings['course_data_switch']): ?>
-                <div class="mastockinfo_divider"></div>          
+                <div class="mastockinfo_divider"></div>
                 <!-- Course Data -->
                 <div class="mastockinfo_course-data">
                     <h2 class="mastockinfo_section-title"><?php echo esc_html($settings['course_data_text']); ?></h2>
@@ -140,10 +140,24 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
     </div><!--/ Sidebar -->
 
     <div class="mastockinfo_main_icons">
-        <?php if (isset($settings['main_icon']['library']) && !empty($settings['main_icon']['library'])): ?>
-            <?php \Elementor\Icons_Manager::render_icon($settings['main_icon'], ['aria-hidden' => 'true']); ?>
+        <?php if (isset($settings['open-icon']['library']) && !empty($settings['open-icon']['library'])): ?>
+            <?php \Elementor\Icons_Manager::render_icon($settings['open-icon'], [
+                'aria-hidden' => 'true',
+                'id' => 'mastockinfo-icon-open',
+                'class' => 'mastockinfo-icon-info'
+            ]); ?>
         <?php else: ?>
-            <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/main-icon.php'; ?>
+            <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/up-arrow-icon.php'; ?>
+        <?php endif; ?>
+        <?php if (isset($settings['close-icon']['library']) && !empty($settings['close-icon']['library'])): ?>
+            <?php \Elementor\Icons_Manager::render_icon($settings['close-icon'], [
+                'aria-hidden' => 'true',
+                'id' => 'mastockinfo-icon-close',
+                'class' => 'mastockinfo-icon-close',
+                'style' => 'display:none;'
+            ]); ?>
+        <?php else: ?>
+            <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/down-arrow-icon.php'; ?>
         <?php endif; ?>
     </div>
 </div>
