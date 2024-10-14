@@ -169,6 +169,16 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
             ]
         );
+        $this->add_control(
+            'course_data_switch',
+            [
+                'label' => __('Show course data', 'mastockinfo'),
+                'type' => \Elementor\Controls_Manager::SWITCHER,
+                'default' => 'yes',
+                'return_value' => 'yes',
+                'description' => __('Show or hide course data', 'mastockinfo'),
+            ]
+        );
 
         $this->add_control(
             'current_price',
@@ -176,6 +186,9 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'label' => __('Current Price', 'mastockinfo'),
                 'type' => \Elementor\Controls_Manager::TEXT,
                 'default' => '0.23 €',
+                'condition' => [
+                    'course_data_switch' => 'yes',
+                ],
             ]
         );
 
@@ -188,6 +201,9 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'return_value' => 'yes',
 				'default' => 'yes',
                 'description' => __('Show or hide course objective', 'mastockinfo'),
+                'condition' => [
+                    'course_data_switch' => 'yes',
+                ]
             ]
         );
 
@@ -199,6 +215,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'default' => '0.25 €',
                 'condition' => [
                     'course_objective_switch' => 'yes',
+                    'course_data_switch' => 'yes',
                 ],
             ]
         );
@@ -215,6 +232,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'return_value' => 'yes',
                 'condition' => [
                     'course_objective_switch' => 'yes',
+                    'course_data_switch' => 'yes',
                 ],
             ]
         );
@@ -228,6 +246,7 @@ class Stock_Widget extends \Elementor\Widget_Base
                 'condition' => [
                     'course_opportunity_auto_switch!' => 'yes',
                     'course_objective_switch' => 'yes',
+                    'course_data_switch' => 'yes',
                 ],
             ]
         );
@@ -1174,12 +1193,15 @@ class Stock_Widget extends \Elementor\Widget_Base
             [
                 'label' => __('Course Data', 'mastockinfo'),
                 'tab' => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'course_data_switch' => 'yes',
+                ],
             ]
         );
         $this->add_control(
             'course_data_heading_color',
             [
-                'label' => __('Heading Text Color', 'mastockinfo'),
+                'label' => __('Heading Color', 'mastockinfo'),
                 'type' => Controls_Manager::COLOR,
                 'selectors' => [
                     '{{WRAPPER}} .mastockinfo_course-data .mastockinfo_section-title' => 'color: {{VALUE}};',

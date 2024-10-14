@@ -101,48 +101,49 @@ $course_opportunity = isset($settings['course_opportunity_auto_switch']) && $set
                         onclick="mastockinfo_copyToClipboard('<?php echo esc_html($id); ?>-ticker3')"><?php echo $this->get_copy_icon(); ?><?php echo esc_html($settings['copy_text']); ?></button>
                 </div>
             </div> <!--/ Stock Ticker/Exchange ID -->
-
-            <div class="mastockinfo_divider"></div>
-
-            <!-- Course Data -->
-            <div class="mastockinfo_course-data">
-                <h2 class="mastockinfo_section-title"><?php echo esc_html($settings['course_data_text']); ?></h2>
-
-                <!-- Single Course Data -->
-                <div class="mastockinfo_single-course-data">
-                    <p>
-                        <strong><?php echo esc_html($settings['current_price_text']); ?>:</strong>
-                    </p>
-                    <p><?php echo esc_html($settings['current_price']); ?></p>
-                </div><!--/ Single Course Data -->
-
-                <?php if('yes' === $settings['course_objective_switch']) : ?>
-                    <!-- Single Course Data -->
-                    <div class="mastockinfo_single-course-data">
-                        <p>
-                            <strong><?php echo esc_html($settings['course_objective_text']); ?>:</strong>
-                        </p>
-                        <p><?php echo esc_html($settings['course_objective']); ?></p>
-                    </div><!--/ Single Course Data -->
-                
+            
+            <?php if ('yes' === $settings['course_data_switch']): ?>
+                <div class="mastockinfo_divider"></div>          
+                <!-- Course Data -->
+                <div class="mastockinfo_course-data">
+                    <h2 class="mastockinfo_section-title"><?php echo esc_html($settings['course_data_text']); ?></h2>
 
                     <!-- Single Course Data -->
                     <div class="mastockinfo_single-course-data">
                         <p>
-                            <strong><?php echo esc_html($settings['price_opportunity_text']); ?></strong>
+                            <strong><?php echo esc_html($settings['current_price_text']); ?>:</strong>
                         </p>
-                        <p><?php echo esc_html($course_opportunity); ?>%</p>
+                        <p><?php echo esc_html($settings['current_price']); ?></p>
                     </div><!--/ Single Course Data -->
-                <?php endif; ?>
-            </div><!--/ Course Data -->
+
+                    <?php if ('yes' === $settings['course_objective_switch']): ?>
+                        <!-- Single Course Data -->
+                        <div class="mastockinfo_single-course-data">
+                            <p>
+                                <strong><?php echo esc_html($settings['course_objective_text']); ?>:</strong>
+                            </p>
+                            <p><?php echo esc_html($settings['course_objective']); ?></p>
+                        </div><!--/ Single Course Data -->
+
+
+                        <!-- Single Course Data -->
+                        <div class="mastockinfo_single-course-data">
+                            <p>
+                                <strong><?php echo esc_html($settings['price_opportunity_text']); ?></strong>
+                            </p>
+                            <p><?php echo esc_html($course_opportunity); ?>%</p>
+                        </div><!--/ Single Course Data -->
+                    <?php endif; ?>
+                </div><!--/ Course Data -->
+            <?php endif; ?>
         </div>
     </div><!--/ Sidebar -->
 
-    <div class="mastockinfo_main_icons">       
+    <div class="mastockinfo_main_icons">
         <?php if (isset($settings['main_icon']['library']) && !empty($settings['main_icon']['library'])): ?>
-            <?php \Elementor\Icons_Manager::render_icon( $settings['main_icon'], [ 'aria-hidden' => 'true' ] ); ?>
+            <?php \Elementor\Icons_Manager::render_icon($settings['main_icon'], ['aria-hidden' => 'true']); ?>
         <?php else: ?>
             <?php include MASTOCKINFO_PLUGIN_PATH . 'includes/widgets/StockWidget/main-icon.php'; ?>
-        <?php endif; ?>     
+        <?php endif; ?>
     </div>
 </div>
